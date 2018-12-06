@@ -1,0 +1,181 @@
+/* Shuai (10-07-2017) css for gtfs editor */
+
+.otp-defaultGTFSEditorWidget {
+  width: auto;
+  left: 10px;
+}
+
+.otp-defaultGTFSEditorWidget hr {
+  display: none;
+}
+
+.otp-GTFSEditorWidget {
+  padding: 0.25em 0.5em;
+  z-index: 1100;
+  overflow: hidden;
+}
+
+@media only screen and (min-width: 768px) {
+  .otp-defaultGTFSEditorWidget {
+    width: 340px;
+    /*top: auto;
+    left: 20px;
+    bottom: 100px;*/
+    
+    padding: 10px;
+  }
+
+  .otp-defaultGTFSEditorWidget hr {
+    display: block;
+  }
+}
+
+.otp-gtfs-editorControl-tabs {
+	list-style-type: none;
+	display: inline-block;
+	border-bottom: 1px solid #555;
+	margin-bottom: 0;
+	margin-left: 0;
+	width: 100%;
+}
+
+.otp-gtfs-editorControl-tabs li{
+	float: left;
+	cursor: pointer;
+	display: block;
+	margin-bottom: -1px;
+}
+
+.otp-gtfs-editorControl-tabs li.active a,
+.otp-gtfs-editorControl-tabs li.active a:hover,
+.otp-gtfs-editorControl-tabs li.active a:focus{
+	padding: 15px;
+	border: 1px solid #555;
+	display: inline-block;
+	cursor: default;
+  	background-color: #fff;
+  	border-bottom-color: transparent;
+}
+
+.otp-gtfs-editorControl-tabs li a{
+	padding: 15px;
+	display: inline-block;
+	border: 1px solid transparent;
+}
+
+.otp-gtfs-editorControl-tabs li a:hover{
+	border-color: #eee #eee #ddd;
+	background-color: lightgray;
+}
+
+.otp-gtfs-editorControl-container{
+
+}
+
+.otp-gtfs-editorControl-content{
+	display: none;
+}
+
+.otp-gtfs-editorControl-content.active{
+	display: block;
+}
+
+#otp-gtfs-routeEditor-shapeWidget-table{
+
+}
+
+#otp-gtfs-routeEditor-shapeWidget-table thead{
+	border: 1px solid;
+	background-color: #1b1515;
+	color: white;
+}
+
+#otp-gtfs-routeEditor-shapeWidget-table thead tr{
+	
+}
+
+#otp-gtfs-routeEditor-shapeWidget-table thead tr th{
+	padding: 10px;
+	text-align: center;
+}
+
+#otp-gtfs-routeEditor-shapeWidget-table tbody{
+	
+}
+
+#otp-gtfs-routeEditor-shapeWidget-table tbody tr{
+	
+}
+
+#otp-gtfs-routeEditor-shapeWidget-table tbody tr:hover{
+	background-color: #ccc;
+}
+
+#otp-gtfs-routeEditor-shapeWidget-table tbody tr td{
+	padding: 10px;
+	text-align: center;
+}
+
+#otp-gtfs-routeEditor-shapeWidget-table tbody tr td img{
+	cursor: pointer;
+}
+
+.disableButton{
+	color: gray;
+}
+
+.hideInfo{
+	display: none;
+}
+
+#otp-gtfs-serviceEditor-table{
+	width: 100%;
+}
+
+#otp-gtfs-serviceEditor-table thead{
+	border: 1px solid;
+	background-color: #1b1515;
+	color: white;
+}
+
+#otp-gtfs-serviceEditor-table thead tr{
+	
+}
+
+#otp-gtfs-serviceEditor-table thead tr th{
+	padding: 10px;
+	text-align: center;
+}
+
+#otp-gtfs-serviceEditor-table tbody{
+	background-color: lightgrey;
+}
+
+#otp-gtfs-serviceEditor-table tbody tr{
+	
+}
+
+#otp-gtfs-serviceEditor-table tbody tr td{
+	padding: 10px;
+	text-align: center;
+}
+
+#otp-gtfs-serviceEditor-adderWidget-table thead{
+	border: 1px solid;
+	background-color: #1b1515;
+	color: white;
+}
+
+#otp-gtfs-serviceEditor-adderWidget-table thead tr th{
+	padding: 10px;
+	text-align: center;
+}
+
+#otp-gtfs-serviceEditor-adderWidget-table tbody{
+	background-color: lightgrey;
+}
+
+#otp-gtfs-serviceEditor-adderWidget-table tbody tr td{
+	padding: 10px;
+	text-align: center;
+}

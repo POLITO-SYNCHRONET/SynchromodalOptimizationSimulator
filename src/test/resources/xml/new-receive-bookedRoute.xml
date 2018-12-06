@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<itinerary>
+	<bookedID>1718</bookedID>
+	<verticesLabels>
+	{"Turin":["gtfs:MILAN","gtfs:MILAN_depart","gtfs:MILAN_TURIN_RAIL:0:01_00_D","gtfs:MILAN_TURIN_RAIL:0:01_01_A","gtfs:TURIN_arrive","gtfs:TURIN"]}
+	</verticesLabels>
+	<from>
+		<name>Milan</name>
+	</from>
+	<to>
+		<name>Turin</name>
+	</to>
+	<startTime>1524416160000</startTime>
+	<endTime>1524438774000</endTime>
+	<id>2</id>
+	<legs>
+		<leg>
+			<bookedID>4186</bookedID>
+			<from>
+				<name>Milan</name>
+			</from>
+			<to>
+				<name>Turin</name>
+			</to>
+			<startTime>1524424560000</startTime>
+			<endTime>1524438774000</endTime>
+			<id>2</id>
+			<agencyId>gtfs</agencyId>
+			<mode>RAIL</mode>
+		</leg>
+	</legs>
+</itinerary>

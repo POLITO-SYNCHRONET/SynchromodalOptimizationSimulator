@@ -1,0 +1,527 @@
+<!-- Shuai (20-10-2017) -->
+
+<!-- GTFS Editor -->
+<script id="otp-gtfsEditor" type="text/html">
+	<div id="{{widgetID}}">
+		<ul id="{{widgetID}}-tabs" class="{{widgetID}}-tabs">
+			<li id="{{widgetID}}-stop" href="otp-gtfs-stopEditor">
+				<a>{{stops}}</a>
+			</li>
+			<li id="{{widgetID}}-route" href="otp-gtfs-routeEditor">
+				<a>{{routes}}</a>
+			</li>
+			<li id="{{widgetID}}-service" href="otp-gtfs-serviceEditor">
+				<a>{{services}}</a>
+			</li>
+		</ul>
+
+		<div id="{{widgetID}}-container" class="{{widgetID}}-container">
+			
+		</div>
+	</div>
+	<div style="clear:both;"></div>
+
+	<div style="margin-top: 1em">
+		<center>
+			<input type="button" id="{{widgetID}}-reload" value="{{reload}}"/>
+		</center>
+	</div>
+</script>
+
+<script id="otp-gtfsEditor-stopEditor" type="text/html">
+	<div style="display: inline-block">
+		<select id="{{widgetID}}-stopList"/>
+		<input style="margin-left: 15px" type="button" id="{{widgetID}}-add" value="+"/>
+	</div>
+	<div style="clear:both; margin-bottom:8px"/>
+
+	<div id="{{widgetID}}-info">
+		<div style="width: 2.5em; float:left;">
+	  	  	<div style="height: 2em;">{{location}}:</div>
+		    <div style="height: 2em;">{{latitude}}:</div>
+			<div style="height: 2em;">{{longitude}}:</div>
+			<div style="height: 2em;">{{type}}:</div>
+			<div>{{country}}:</div>
+		</div>
+
+		<div class="notDraggable" style="position: relative; margin-left: 8em; height: 10em; overflow: hidden;">
+		    <div style="position: absolute; left:0px; right: 30px; height: 20px; width: 100%">
+	    	    <div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	        	    <input id="{{widgetID}}-location" class="borderBox otp-tripOptions-loc-input">
+		        </div>
+		    </div>
+	    	<div style="position: absolute; top: 2em; left:0px; right: 30px; height: 20px; width: 100%">
+	        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            	<input id="{{widgetID}}-latitude" class="borderBox otp-tripOptions-loc-input">
+		        </div>
+		    </div>
+			<div style="position: absolute; top: 4em; left:0px; right: 30px; height: 20px; width: 100%">
+	        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            	<input id="{{widgetID}}-longitude" class="borderBox otp-tripOptions-loc-input">
+	        	</div>
+	    	</div>
+			<div style="position: absolute; top: 6em; left:0px; right: 30px; height: 20px; width: 100%">
+	        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            	<input id="{{widgetID}}-type" class="borderBox otp-tripOptions-loc-input">
+	        	</div>
+	    	</div>
+			<div style="position: absolute; top: 8em; left:0px; right: 30px; height: 20px; width: 100%">
+	        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            	<input id="{{widgetID}}-country" class="borderBox otp-tripOptions-loc-input">
+	        	</div>
+	    	</div>
+		</div>
+	
+		<div style="clear:both;"></div>
+		
+		<div style="margin-top: 1em">
+			<center>
+				<input type="button" id="{{widgetID}}-save" value="{{save}}"/>
+				<input type="button" id="{{widgetID}}-remove" value="{{remove}}"/>
+				
+			</center>
+		</div>
+	</div>
+</script>
+
+<script id="otp-gtfsEditor-stopEditor-Adder" type="text/html">
+		<div style="margin-bottom: 8px">Enter latitude/longitude or select on the map</div>
+
+		<div style="width: 2.5em; float:left;">
+	  	  	<div style="height: 2em;">{{location}}:</div>
+		    <div style="height: 2em;">{{latitude}}:</div>
+			<div style="height: 2em;">{{longitude}}:</div>
+			<div style="height: 2em;">{{type}}:</div>
+			<div>{{country}}:</div>
+		</div>
+
+		<div class="notDraggable" style="position: relative; margin-left: 8em; height: 10em; overflow: hidden;">
+		    <div style="position: absolute; left:0px; right: 30px; height: 20px; width: 100%">
+	    	    <div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	        	    <input id="{{widgetID}}-location" class="borderBox otp-tripOptions-loc-input">
+		        </div>
+		    </div>
+	    	<div style="position: absolute; top: 2em; left:0px; right: 30px; height: 20px; width: 100%">
+	        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            	<input id="{{widgetID}}-latitude" class="borderBox otp-tripOptions-loc-input">
+		        </div>
+		    </div>
+			<div style="position: absolute; top: 4em; left:0px; right: 30px; height: 20px; width: 100%">
+	        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            	<input id="{{widgetID}}-longitude" class="borderBox otp-tripOptions-loc-input">
+	        	</div>
+	    	</div>
+			<div style="position: absolute; top: 6em; left:0px; right: 30px; height: 20px; width: 100%">
+	        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            	<input id="{{widgetID}}-type" class="borderBox otp-tripOptions-loc-input">
+	        	</div>
+	    	</div>
+			<div style="position: absolute; top: 8em; left:0px; right: 30px; height: 20px; width: 100%">
+	        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            	<input id="{{widgetID}}-country" class="borderBox otp-tripOptions-loc-input">
+	        	</div>
+	    	</div>
+		</div>
+		<div style="clear:both;"></div>
+		
+		<div style="margin-top: 1em">
+			<center>
+				<input type="button" id="{{widgetID}}-add" value="{{add}}"/>
+				<input type="button" id="{{widgetID}}-close" value="{{close}}"/>
+			</center>
+		</div>
+</script>
+
+<script id="otp-gtfsEditor-routeEditor" type="text/html">
+	<div style="display: inline-block">
+		<select id="{{widgetID}}-routeList"/>
+		<input style="margin-left: 15px" type="button" id="{{widgetID}}-add" value="+"/>
+	</div>
+	<div style="clear:both; margin-bottom:8px"/>
+
+	<div id="{{widgetID}}-info">
+		<div style="width: 8em; float:left;">
+	  	  	<div style="height: 2em;">{{routes}}:</div>
+		    <div style="height: 2em;">{{from}}:</div>
+			<div style="height: 2em;">{{to}}:</div>
+			<div style="height: 2em;">{{mode}}:</div>
+			<div style="height: 2em;">{{agency}}:</div>
+			<div style="height: 2em;">{{service}}:</div>
+			<div style="height: 2em;">{{departure}}:</div>
+			<div style="height: 2em;">{{arrive}}:</div>
+			<div style="height: 2em;">{{frequency}}:</div>
+			<div style="height: 2em; display: none" name="f">{{startTime}}:</div>
+			<div style="height: 2em; display: none" name="f">{{endTime}}:</div>
+			<div style="height: 2em; display: none" name="f">{{headway}}(min):</div>
+		</div>
+
+		<div class="notDraggable" style="position: relative; margin-left: 8em; height: 24em; overflow: hidden;">
+		    <div style="position: absolute; left:0px; right: 30px; height: 20px; width: 100%">
+	    	    <div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	        	    <input id="{{widgetID}}-name" class="borderBox otp-tripOptions-loc-input">
+		        </div>
+		    </div>
+	    	<div style="position: absolute; top: 2em; left:0px; right: 30px; height: 20px; width: 100%">
+	        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            	<input id="{{widgetID}}-from" class="borderBox otp-tripOptions-loc-input">
+		        </div>
+		    </div>
+			<div style="position: absolute; top: 4em; left:0px; right: 30px; height: 20px; width: 100%">
+	        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            	<input id="{{widgetID}}-to" class="borderBox otp-tripOptions-loc-input">
+	        	</div>
+	    	</div>
+			<div style="position: absolute; top: 6em; left:0px; right: 30px; height: 20px; width: 100%">
+	        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            	<input id="{{widgetID}}-mode" class="borderBox otp-tripOptions-loc-input">
+	        	</div>
+	    	</div>
+			<div style="position: absolute; top: 8em; left:0px; right: 30px; height: 20px; width: 100%">
+	        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            	<input id="{{widgetID}}-agency" class="borderBox otp-tripOptions-loc-input">
+	        	</div>
+	    	</div>
+			<div style="position: absolute; top: 10em; left:0px; right: 30px; height: 20px; width: 100%">
+	        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            	<select id="{{widgetID}}-service">
+						<option selected disabled>Select service</option>
+					</select>
+	        	</div>
+	    	</div>
+			<div style="position: absolute; top: 12em; left:0px; right: 30px; height: 20px; width: 100%" name="multipleDates">
+	        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            	<input id="{{widgetID}}-departure" class="borderBox otp-tripOptions-loc-input">
+	        	</div>
+	    	</div>
+			<div style="position: absolute; top: 12em; left:0px; right: 30px; height: 20px; width: 100%; display:none" name="singleDate">
+	        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            	<input id="{{widgetID}}-departureDate" class="borderBox otp-tripOptions-loc-input" style="width: 100px">
+					<span>
+						<input id="{{widgetID}}-departureTime" class="borderBox otp-tripOptions-loc-input" style="width: 100px">
+					</span>
+	        	</div>
+	    	</div>
+			<div style="position: absolute; top: 14em; left:0px; right: 30px; height: 20px; width: 100%" name="multipleDates">
+	        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            	<input id="{{widgetID}}-arrive" class="borderBox otp-tripOptions-loc-input" style="width: 120px">
+					<span>
+						+<input id="{{widgetID}}-arriveDays" class="borderBox otp-tripOptions-loc-input" style="width: 40px"/>Days
+					</span>
+	        	</div>
+	    	</div>
+			<div style="position: absolute; top: 14em; left:0px; right: 30px; height: 20px; width: 100%; display:none" name="singleDate">
+	        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            	<input id="{{widgetID}}-arriveDate" class="borderBox otp-tripOptions-loc-input" style="width: 100px">
+					<span>
+						<input id="{{widgetID}}-arriveTime" class="borderBox otp-tripOptions-loc-input" style="width: 100px">
+					</span>
+	        	</div>
+	    	</div>
+			<div style="position: absolute; top: 16em; left:0px; right: 30px; height: 20px; width: 100%">
+	        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+					<input type="checkbox" id="{{widgetID}}-frequencyCheckbox">
+	        	</div>
+	    	</div>
+			<div style="position: absolute; top: 18em; left:0px; right: 30px; height: 20px; width: 100%; display: none" name="f">
+	        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            	<input id="{{widgetID}}-startTime" class="borderBox otp-tripOptions-loc-input">
+	        	</div>
+	    	</div>
+			<div style="position: absolute; top: 20em; left:0px; right: 30px; height: 20px; width: 100%; display: none" name="f">
+	        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            	<input id="{{widgetID}}-endTime" class="borderBox otp-tripOptions-loc-input">
+	        	</div>
+	    	</div>
+			<div style="position: absolute; top: 22em; left:0px; right: 30px; height: 20px; width: 100%; display: none" name="f">
+	        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            	<input id="{{widgetID}}-headway" class="borderBox otp-tripOptions-loc-input">
+	        	</div>
+	    	</div>
+		</div>
+		<div style="clear:both;"></div>
+		
+		<div style="margin-top: 1em">
+			<center>
+				<input type="button" id="{{widgetID}}-shape" value="{{shape}}"/>
+				<input type="button" id="{{widgetID}}-save" value="{{save}}"/>
+				<input type="button" id="{{widgetID}}-remove" value="{{remove}}"/>
+			</center>
+		</div>
+	</div>
+</script>
+
+<script id="otp-gtfsEditor-routeEditor-Adder" type="text/html">
+		<div style="margin-bottom: 8px; width: 350px">Create a new route</div>
+
+		<div style="width: 8em; float:left;">
+	  	  	<div style="height: 2em;">{{from}}:</div>
+		    <div style="height: 2em;">{{to}}:</div>
+			<div style="height: 2em;">{{mode}}:</div>
+			<div style="height: 2em;">{{agency}}:</div>
+			<div style="height: 2em;">{{service}}:</div>
+			<div style="height: 2em;">{{departure}}:</div>
+			<div style="height: 2em;">{{arrive}}:</div>
+			<div style="height: 2em;">{{frequency}}:</div>
+			<div style="height: 2em; display: none" name="f">{{startTime}}:</div>
+			<div style="height: 2em; display: none" name="f">{{endTime}}:</div>
+			<div style="height: 2em; display: none" name="f">{{headway}}(min):</div>
+		</div>
+
+		<div class="notDraggable" style="position: relative; margin-left: 5em; height: 22em; overflow: hidden;">
+		    <div style="position: absolute; left:0px; right: 30px; height: 20px; width: 100%">
+	    	    <div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+					<select id="{{widgetID}}-from"/>
+		        </div>
+		    </div>
+	    	<div style="position: absolute; top: 2em; left:0px; right: 30px; height: 20px; width: 100%">
+	        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+					<select id="{{widgetID}}-to"/>
+		        </div>
+		    </div>
+			<div style="position: absolute; top: 4em; left:0px; right: 30px; height: 20px; width: 100%">
+	        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            	<select id="{{widgetID}}-mode">
+						<option selected disabled>Select mode</option>
+						<option>TRUCK</option>
+						<option>RAIL</option>
+						<option>FERRY</option>
+						<option>BARGE</option>
+					</select>
+					<select id="{{widgetID}}-submode" class="hideInfo">
+						<option selected disabled>Select sub-mode</option>
+						<option>RORO_Fast</option>
+						<option>RORO_Medium</option>
+						<option>RORO_Slow</option>
+						<option>LOLO_Fast</option>
+						<option>LOLO_Medium</option>
+						<option>LOLO_Slow</option>
+					</select>
+	        	</div>
+	    	</div>
+			<div style="position: absolute; top: 6em; left:0px; right: 30px; height: 20px; width: 100%">
+	        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            	<input id="{{widgetID}}-agency" class="borderBox otp-tripOptions-loc-input">
+	        	</div>
+	    	</div>
+			<div style="position: absolute; top: 8em; left:0px; right: 30px; height: 20px; width: 100%">
+	        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            	<select id="{{widgetID}}-service">
+						<option selected disabled>Select service</option>
+					</select>
+	        	</div>
+	    	</div>
+
+			<div style="position: absolute; top: 10em; left:0px; right: 30px; height: 20px; width: 100%" name="multipleDates">
+	        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            	<input id="{{widgetID}}-departure" class="borderBox otp-tripOptions-loc-input">
+	        	</div>
+	    	</div>
+			<div style="position: absolute; top: 10em; left:0px; right: 30px; height: 20px; width: 100%; display:none" name="singleDate">
+	        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            	<input id="{{widgetID}}-departureDate" class="borderBox otp-tripOptions-loc-input" style="width: 100px">
+					<span>
+						<input id="{{widgetID}}-departureTime" class="borderBox otp-tripOptions-loc-input" style="width: 100px">
+					</span>
+	        	</div>
+	    	</div>
+			<div style="position: absolute; top: 12em; left:0px; right: 30px; height: 20px; width: 100%" name="multipleDates">
+	        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            	<input id="{{widgetID}}-arrive" class="borderBox otp-tripOptions-loc-input" style="width: 120px">
+					<span>
+						+<input id="{{widgetID}}-arriveDays" class="borderBox otp-tripOptions-loc-input" style="width: 40px"/>Days
+					</span>
+	        	</div>
+	    	</div>
+			<div style="position: absolute; top: 12em; left:0px; right: 30px; height: 20px; width: 100%; display:none" name="singleDate">
+	        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            	<input id="{{widgetID}}-arriveDate" class="borderBox otp-tripOptions-loc-input" style="width: 100px">
+					<span>
+						<input id="{{widgetID}}-arriveTime" class="borderBox otp-tripOptions-loc-input" style="width: 100px">
+					</span>
+	        	</div>
+	    	</div>
+
+			<div style="position: absolute; top: 14em; left:0px; right: 30px; height: 20px; width: 100%">
+	        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+					<input type="checkbox" id="{{widgetID}}-frequencyCheckbox">
+	        	</div>
+	    	</div>
+			<div style="position: absolute; top: 16em; left:0px; right: 30px; height: 20px; width: 100%; display: none" name="f">
+	        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            	<input id="{{widgetID}}-startTime" class="borderBox otp-tripOptions-loc-input">
+	        	</div>
+	    	</div>
+			<div style="position: absolute; top: 18em; left:0px; right: 30px; height: 20px; width: 100%; display: none" name="f">
+	        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            	<input id="{{widgetID}}-endTime" class="borderBox otp-tripOptions-loc-input">
+	        	</div>
+	    	</div>
+			<div style="position: absolute; top: 20em; left:0px; right: 30px; height: 20px; width: 100%; display: none" name="f">
+	        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            	<input id="{{widgetID}}-headway" class="borderBox otp-tripOptions-loc-input">
+	        	</div>
+	    	</div>
+		</div>
+		<div style="clear:both;"></div>
+		
+		<div style="margin-top: 1em">
+			<center>
+				<input type="button" id="{{widgetID}}-shape" value="{{shape}}"/>
+				<input type="button" id="{{widgetID}}-add" value="{{add}}"/>
+				<input type="button" id="{{widgetID}}-close" value="{{close}}"/>
+			</center>
+		</div>
+</script>
+
+<script id="otp-gtfsEditor-routeEditor-shapeDrawer" type="text/html">
+	<div style="margin-top: 8px">
+		<table id="{{widgetID}}-table">
+			<thead>
+				<tr>
+					<th>{{order}}</th>
+					<th>{{latitude}}</th>
+					<th>{{longitude}}</th>
+					<th>{{note}}</th>
+					<th>{{del}}</th>
+				</tr>
+			</thead>
+
+			<tbody>
+			</tbody>
+		</table>
+	</div>
+	<div style="clear:both;"></div>
+		
+	<div style="margin-top: 1em">
+		<center>
+			<input type="button" id="{{widgetID}}-close" value="{{close}}"/>
+		</center>
+	</div>
+</script>
+
+<script id="otp-gtfsEditor-serviceEditor" type="text/html">
+	<div style="display: inline-block">
+		<select id="{{widgetID}}-serviceList"/>
+		<input style="margin-left: 15px" type="button" id="{{widgetID}}-add" value="+"/>
+	</div>
+	<div style="clear:both; margin-bottom:8px"/>
+
+	<div id="{{widgetID}}-info" style="margin-top: 8px">
+		<table id="{{widgetID}}-table">
+			<thead>
+				<tr>
+					<th>{{id}}</th>
+					<th>{{sun}}</th>
+					<th>{{mon}}</th>
+					<th>{{tue}}</th>
+					<th>{{wed}}</th>
+					<th>{{thu}}</th>
+					<th>{{fri}}</th>
+					<th>{{sat}}</th>
+					<th>{{start}}</th>
+					<th>{{end}}</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr>
+					<td><input type="text" id="{{widgetID}}-serviceId" /></td>
+					<td><input type="checkbox" id="{{widgetID}}-sun-checkbox" /></td>
+					<td><input type="checkbox" id="{{widgetID}}-mon-checkbox" /></td>
+					<td><input type="checkbox" id="{{widgetID}}-tue-checkbox" /></td>
+					<td><input type="checkbox" id="{{widgetID}}-wed-checkbox" /></td>
+					<td><input type="checkbox" id="{{widgetID}}-thu-checkbox" /></td>
+					<td><input type="checkbox" id="{{widgetID}}-fri-checkbox" /></td>
+					<td><input type="checkbox" id="{{widgetID}}-sat-checkbox" /></td>
+					<td><input type="text" id="{{widgetID}}-startdate" class="otp-date-input" /></td>
+					<td><input type="text" id="{{widgetID}}-enddate" class="otp-date-input" /></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<div style="margin-top: 1em">
+
+		<div id="{{widgetID}}-exceptionIncluded" class="notDraggable">
+			<div>Include:</div>
+			<div id="{{widgetID}}-includedDates" style="width: 100%; height: 150px; overflow-y: scroll; background: white">
+				<input type="button" id="{{widgetID}}-includedDatesAdder" value="+"/>
+			</div>
+		</div>
+		<div style="margin-top: 1em">
+	
+		<div id="{{widgetID}}-exceptionExcluded" class="notDraggable">
+			<div>Exclude:</div>
+			<div id="{{widgetID}}-excludedDates" style="width: 100%; height: 150px; overflow-y: scroll; background: white">
+				<input type="button" id="{{widgetID}}-excludedDatesAdder" value="+"/>
+			</div>
+		</div>
+	</div>
+	<div style="clear:both;"></div>
+				
+	<div style="margin-top: 1em">
+		<center>
+			<input type="button" id="{{widgetID}}-save" value="{{save}}"/>
+			<input type="button" id="{{widgetID}}-remove" value="{{remove}}"/>
+		</center>
+	</div>
+</script>
+
+<script id="otp-gtfsEditor-serviceEditor-Adder" type="text/html">
+	<div style="margin-bottom: 8px;"/>
+	<table id="{{widgetID}}-table" class="notDraggable">
+			<thead>
+				<tr>
+					<th>{{id}}</th>
+					<th>{{sun}}</th>
+					<th>{{mon}}</th>
+					<th>{{tue}}</th>
+					<th>{{wed}}</th>
+					<th>{{thu}}</th>
+					<th>{{fri}}</th>
+					<th>{{sat}}</th>
+					<th>{{start}}</th>
+					<th>{{end}}</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr>
+					<td><input type="text" id="{{widgetID}}-serviceId" /></td>
+					<td><input type="checkbox" id="{{widgetID}}-sun-checkbox" /></td>
+					<td><input type="checkbox" id="{{widgetID}}-mon-checkbox" /></td>
+					<td><input type="checkbox" id="{{widgetID}}-tue-checkbox" /></td>
+					<td><input type="checkbox" id="{{widgetID}}-wed-checkbox" /></td>
+					<td><input type="checkbox" id="{{widgetID}}-thu-checkbox" /></td>
+					<td><input type="checkbox" id="{{widgetID}}-fri-checkbox" /></td>
+					<td><input type="checkbox" id="{{widgetID}}-sat-checkbox" /></td>
+					<td><input type="text" id="{{widgetID}}-startdate" class="otp-date-input" /></td>
+					<td><input type="text" id="{{widgetID}}-enddate" class="otp-date-input" /></td>
+				</tr>
+			</tbody>
+	</table>
+
+	<div style="clear:both;"></div>
+	<div style="margin-top: 1em">
+
+	<div id="{{widgetID}}-exceptionIncluded" class="notDraggable">
+		<div>Include:</div>
+		<div id="{{widgetID}}-includedDates" style="width: 100%; height: 150px; overflow-y: scroll; background: white">
+			<input type="button" id="{{widgetID}}-includedDatesAdder" value="+"/>
+		</div>
+	</div>
+	<div style="margin-top: 1em">
+
+	<div id="{{widgetID}}-exceptionExcluded" class="notDraggable">
+		<div>Exclude:</div>
+		<div id="{{widgetID}}-excludedDates" style="width: 100%; height: 150px; overflow-y: scroll; background: white">
+			<input type="button" id="{{widgetID}}-excludedDatesAdder" value="+"/>
+		</div>
+	</div>
+		
+	<div style="margin-top: 1em">
+		<center>
+			<input type="button" id="{{widgetID}}-add" value="{{add}}"/>
+			<input type="button" id="{{widgetID}}-close" value="{{close}}"/>
+		</center>
+	</div>
+</script>

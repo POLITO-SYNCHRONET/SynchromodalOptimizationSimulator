@@ -1,0 +1,32 @@
+.otp-dialogContent {
+    position: absolute;
+    top: 10px;
+    bottom: 45px;
+    left: 10px;
+    right: 10px;
+}
+
+.otp-dialogButtonRow {
+    position: absolute;
+    bottom: 5px;
+    left: 0px;
+    right: 0px;
+    height: 30px;
+    text-align: center;
+    margin-top: 8px;
+}
+
+.otp-defaultUserConfigurationWidget {
+  width: 40em;
+  left: 10px;
+}
+
+.otp-defaultUserConfigurationWidget hr {
+  display: none;
+}
+
+.otp-UserConfigurationWidget {
+  padding: 0.25em 0.5em;
+  z-index: 1100;
+  overflow: hidden;
+}

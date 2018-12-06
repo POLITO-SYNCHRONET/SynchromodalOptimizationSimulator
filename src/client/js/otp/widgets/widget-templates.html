@@ -1,0 +1,784 @@
+<script id="otp-okDialog" type="text/html">
+    <div style="position: relative;">
+        <div class="otp-dialogContent">{{message}}</div>
+        <div class="otp-dialogButtonRow">
+            <button class="okButton">{{ok}}</button>
+        </div>
+    </div>
+</script>
+
+<script id="otp-yesNoDialog" type="text/html">
+    <div style="position: relative;">
+        <div class="otp-dialogContent">{{message}}</div>
+        <div class="otp-dialogButtonRow">
+            <button class="yesButton">Yes</button>
+            <button class="noButton">No</button>
+        </div>
+    </div>
+</script>
+
+<script id="otp-inputDialog" type="text/html">
+    <div style="position: relative;">
+        <div class="otp-dialogContent">
+            {{message}}
+            <div style="margin-top: 6px;">
+                <textarea class="borderBox textarea" style="z-index: 1000000; width: 100%; height: 3em;" />
+            </div>
+        </div>
+        <div class="otp-dialogButtonRow">
+            <button class="okButton">OK</button>
+            <button class="cancelButton">Cancel</button>
+        </div>
+    </div>
+</script>
+
+<script id="otp-dateDialog" type="text/html">
+    <div style="position: relative;">
+        <div class="otp-dialogContent">
+            {{message}}
+            <div class="datepicker" style="margin-top: 6px;"></div>
+        </div>
+        <div class="otp-dialogButtonRow">
+            <button class="okButton">OK</button>
+            <button class="cancelButton">Cancel</button>
+        </div>
+    </div>
+</script>
+
+<!-- Shuai (24-03-2017) -->
+<!-- Login -->
+<script id="otp-login" type="text/html">
+	<div style="width: 2.5em; float:left;">
+	    <div style="height: 2em;">{{username}}:</div>
+	    <div>{{password}}:</div>
+	</div>
+	    
+	<div class="notDraggable" style="position: relative; margin-left: 10em; height: 3.6em; overflow: hidden;">
+	    <div style="position: absolute; left:0px; right: 30px; height: 20px;">
+	        <div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            <input id="{{widgetID}}-username" class="borderBox otp-tripOptions-loc-input">
+	        </div>
+	    </div>
+	    <div style="position: absolute; top: 1.8em; left:0px; right: 30px; height: 20px;">
+	        <div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            <input id="{{widgetID}}-password" class="borderBox otp-tripOptions-loc-input">
+	        </div>
+	    </div>
+	</div>
+	<div style="clear:both;"></div>
+	
+	<div style="margin-top: 2em">
+		<center>
+			<input type="button" id="{{widgetID}}-submit" value="{{login}}"/>
+			<input type="button" id="{{widgetID}}-register" value="{{register}}"/>
+		</center>
+	</div>
+</script>
+
+
+<!-- Register -->
+<script id="otp-register" type="text/html">
+	<div style="width: 2.5em; float:left;">
+	    <div style="height: 2em;">{{username}}:</div>
+	    <div>{{password}}:</div>
+	</div>
+	    
+	<div class="notDraggable" style="position: relative; margin-left: 10em; height: 3.6em; overflow: hidden;">
+	    <div style="position: absolute; left:0px; right: 30px; height: 20px;">
+	        <div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            <input id="{{widgetID}}-username" class="borderBox otp-tripOptions-loc-input">
+	        </div>
+	    </div>
+	    <div style="position: absolute; top: 1.8em; left:0px; right: 30px; height: 20px;">
+	        <div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            <input id="{{widgetID}}-password" class="borderBox otp-tripOptions-loc-input">
+	        </div>
+	    </div>
+	</div>
+	<div style="clear:both;"></div>
+	
+	<div style="margin-top: 2em">
+		<center>
+			<input type="button" id="{{widgetID}}-confirm" value="{{confirm}}"/>
+		</center>
+	</div>
+</script>
+
+<!-- End Shuai -->
+
+<!-- Yuanyuan (06-07-2017) -->
+<!-- User Experience -->
+<script id="otp-userExperience" type="text/html">
+	<div style="width: 8em; float:left;">
+	    <div style="height: 2em;">{{slocation}}:</div>
+	    <div style="height: 2em;">{{elocation}}:</div>
+        <div style="height: 2em;">{{type}}:</div>
+		<div style="height: 2em;">{{dateTime}}:</div>
+		<div style="height: 2em;">{{incidentPlace}}:</div>
+		<div style="height: 2em; margin-top: 11px">{{serviceProvider}}:</div>
+		<div style="height: 2em;">{{transportation}}:</div>
+		<div style="height: 2em;">{{reason}}:</div>
+		<div style="height: 2em;">{{summary}}:</div>
+	</div>
+
+	<div class="notDraggable" style="position: relative; margin-left: 10em; height: 26em; overflow: hidden;">
+	    <div style="position: absolute; left:0px; right: 30px; height: 20px;">
+	        <div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+				<input name="slocation" type="text" list = "{{widgetID}}-slocation"  placeholder="e.g. Amsterdam">
+				<datalist id="{{widgetID}}-slocation">
+					<!--<option value="Amsterdam">-->
+				</datalist>
+				<!--<select id="{{widgetID}}-slocation"/>-->
+	            <!--<input id="{{widgetID}}-slocation" class="borderBox otp-tripOptions-loc-input">-->
+	        </div>
+	    </div>
+	    <div style="position: absolute; top: 1.8em; left:0px; right: 30px; height: 20px;">
+	        <div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            <input name="elocation" type="text" list = "{{widgetID}}-elocation"  placeholder="e.g. Cork">
+				<datalist id="{{widgetID}}-elocation">
+				</datalist>
+	        </div>
+	    </div>
+		<div style="position: absolute; top: 4em; left:0px; right: 30px; height: 20px;">
+	        <div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	           <fieldset id="{{widgetID}}-type">
+				<input id="typeLoss" type="checkbox" class="type" value="loss"  checked>
+				<label for="loss">loss</label>
+				<input id="typeDamage" type="checkbox" class="type" value="damage">
+				<label for="damage">damage</label>
+			  </fieldset>
+	        </div>
+	    </div>
+		<div style="position: absolute; top: 6em; left:0px; right: 30px; height: 20px;">
+	        <div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            <input id="{{widgetID}}-dateTime" type="datetime-local" class="borderBox otp-tripOptions-loc-input">
+	        </div>
+	    </div>
+		<div style="position: absolute; top: 8em; left:0px; right: 30px; height: 20px;">
+	        <div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	           <fieldset id="{{widgetID}}-incidentPlace">
+				<div>
+				<input id="startPlace" type="radio" name="incidentPlace" value="starting">
+				<label for="starting">starting location</label>
+				<input id="endPlace" type="radio" name="incidentPlace" value="ending">
+				<label for="ending">ending location</label>
+				</div>
+				<div>
+				<input id="onTheWay" type="radio" name="incidentPlace" value="onTheWay"  checked>
+				<label for="onTheWay">on the way</label>
+				<input id="unknown" type="radio" name="incidentPlace" value="unknown">
+				<label for="unknown">unknown</label>
+				</div>
+			  </fieldset>
+	        </div>
+	    </div>
+		<div style="position: absolute; top: 11em; left:0px; right: 30px; height: 20px;">
+	        <div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            <input id="{{widgetID}}-serviceProvider" class="borderBox otp-tripOptions-loc-input">
+	        </div>
+	    </div>
+		<div style="position: absolute; top: 13em; left:0px; right: 30px; height: 20px;">
+	        <div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	           <fieldset id="{{widgetID}}-transportation">
+				<input id="rail" type="radio" name="transportation" value="rail"  checked>
+				<label for="rail">rail</label>
+				<input id="truck" type="radio" name="transportation" value="truck">
+				<label for="truck">truck</label>
+				<input id="ship" type="radio" name="transportation" value="ship">
+				<label for="ship">ship</label>
+				<!--<input id="fastShip" type="radio" name="transportation" value="fastShip">
+				<label for="fastShip">fastShip</label>
+				<input id="slowShip" type="radio" name="transportation" value="slowShip">
+				<label for="slowShip">slowShip</label>
+				<input id="mediumShip" type="radio" name="transportation" value="mediumShip">
+				<label for="mediumShip">mediumShip</label>-->
+			  </fieldset>
+	        </div>
+	    </div>
+		<div style="position: absolute; top: 15em; left:0px; right: 30px; height: 20px;">
+	        <div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            <input id="{{widgetID}}-reason" class="borderBox otp-tripOptions-loc-input">
+	        </div>
+	    </div>
+		<div style="position: absolute; top: 17em; left:0px; right: 30px; height: 20px;">
+	        <div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            <textarea id="{{widgetID}}-summary" cols="40" rows="5" placeholder="Please record a brief description of the incident" class="borderBox otp-tripOptions-loc-input"></textarea>
+	        </div>
+	    </div>
+	</div>
+	<div style="clear:both;"></div>
+	
+	<div style="margin-top: 2em">
+		<center>
+			<input type="button" id="{{widgetID}}-save" value="{{save}}"/>
+		</center>
+	</div>
+</script>
+
+<!-- End Yuanyuan -->
+
+
+<!-- Shuai (22-02-2018) -->
+<!-- User Configuration -->
+<script id="otp-userConfiguration2" type="text/html">
+	<div style="display: inline-block" class="notDraggable">
+		<select id="{{widgetID}}-configurationList"/>
+		<img style="margin-left: 15px" id="{{widgetID}}-clean" src="images/eraser.png"/>
+	</div>
+	<div style="clear:both; margin-bottom:20px"/>
+
+	<div id="{{widgetID}}-steps" class="notDraggable" style="height: 450px; width: 100%">
+		<ul>
+			<li id="{{widgetID}}-tab1"><a href="#{{widgetID}}-page1">ID</a></li>
+			<li id="{{widgetID}}-tab2"><a href="#{{widgetID}}-page2">General</a></li>
+			<li id="{{widgetID}}-tab3"><a href="#{{widgetID}}-page3">KPI&KRI</a></li>
+			<li id="{{widgetID}}-tab4"><a href="#{{widgetID}}-page4">Vehicle</a></li>
+		</ul>
+
+		<div id="{{widgetID}}-page1" style="display: block; width: 90%">
+			<b>Select a configuration or create a new one</b>
+			<div style="clear:both; margin-bottom:20px"/>
+
+			<div style="width: 12em; float:left;">
+		  	  	<div style="height: 2em;">{{id}}:</div>
+				<div>{{comment1}}</div>
+			</div>
+	
+			<div class="notDraggable" style="position: relative; margin-left: 12em; height: 2em; overflow: hidden;">
+			    <div style="position: absolute; left:0px; right: 30px; height: 20px; width: 100%">
+	    	    	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+		        	    <input id="{{widgetID}}-configurationID" class="borderBox otp-tripOptions-loc-input">
+		        	</div>
+		    	</div>
+			</div>
+		</div>
+
+		<div id="{{widgetID}}-page2" style="display: none;">
+			<b>General Configurations</b>
+			<div style="clear:both; margin-bottom:20px"/>
+
+			<div style="width: 12em; float:left;">
+		  	  	<div style="height: 2em;">{{costCO2}}:</div>
+			    <div style="height: 2em;">{{costHour}}:</div>
+			</div>
+	
+			<div class="notDraggable" style="position: relative; margin-left: 12em; height: 4em; overflow: hidden;">
+			    <div style="position: absolute; left:0px; right: 30px; height: 20px; width: 100%">
+	    	    	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+		        	    <input id="{{widgetID}}-costCO2" class="borderBox otp-tripOptions-loc-input">
+		        	</div>
+		    	</div>
+	    		<div style="position: absolute; top: 2em; left:0px; right: 30px; height: 20px; width: 100%">
+		        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            		<input id="{{widgetID}}-costHour" class="borderBox otp-tripOptions-loc-input">
+		        	</div>
+		    	</div>
+			</div>		
+		</div>
+
+		<div id="{{widgetID}}-page3" style="display: none">
+			<b>KPI & KRI Configurations</b>
+			<div style="clear:both; margin-bottom:20px"/>
+			
+			<div style="width: 12em; float:left;">
+				<div style="height: 3em;">{{file}}:(optional)</div>
+			</div>
+	
+			<div class="notDraggable" style="position: relative; margin-left: 12em; height: 2em; overflow: hidden;">
+	    		<div style="position: absolute; top: 0em; left:0px; right: 30px; height: 20px; width: 100%">
+		        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            		<input id="{{widgetID}}-file" type="file" accept=".txt">
+		        	</div>
+		    	</div>
+			</div>
+
+			<div style="clear:both; margin-bottom:10px"/>
+			<div id="{{widgetID}}-KPIConfig">
+				<text>Set your KPI weighting</text>
+				<div id="{{widgetID}}-triangle" class="otp-bikeTriangle notDraggable" style="width: 40em"></div>
+				<input type="button" value="reset" style="margin-left:30px" id="{{widgetID}}-reset"></input>
+			</div>
+
+			<div style="clear:both; margin-bottom:10px"/>
+			<div id="{{widgetID}}-KRIConfig">
+				<text>Set your KRI weighting</text>
+				<div id="{{widgetID}}-riskTriangle" class="otp-bikeTriangle notDraggable" style="width: 40em"></div>
+				<input type="button" value="reset" style="margin-left:30px" id="{{widgetID}}-riskReset"></input>
+			</div>
+		</div>
+
+		<div id="{{widgetID}}-page4" style="display: none">
+			<b>Vehicle Configurations</b>
+			<div style="clear:both; margin-bottom:20px"/>
+
+			Choose type of vehicle: <select id="{{widgetID}}-vehicleList">
+										<option selected disabled>Select mode</option>
+										<option>Truck</option>
+										<option>Train</option>
+										<option>Ship</option>
+									</select>
+			<div style="clear:both; margin-bottom:20px"/>
+
+			<div id="{{widgetID}}-descriptionTruck" style="width: 12em; float:left; display: none">
+		  	  	<div style="height: 2em;">{{costKm}}:</div>
+			    <div style="height: 2em;">{{CO2Km}}:</div>
+				<div style="height: 2em;">{{boarding}}:</div>
+				<div style="height: 2em;">{{alighting}}:</div>
+				<div style="height: 2em;">{{speed}}:</div>
+			</div>
+
+			<div id="{{widgetID}}-descriptionTrain" style="width: 12em; float:left; display: none">
+		  	  	<div style="height: 2em;">{{costKm}}:</div>
+			    <div style="height: 2em;">{{CO2Km}}:</div>
+				<div style="height: 2em;">{{boarding}}:</div>
+				<div style="height: 2em;">{{alighting}}:</div>
+				<div style="height: 2em;">{{capacity}}:</div>
+			</div>
+
+			<div id="{{widgetID}}-descriptionShip" style="width: 12em; float:left; display: none">
+		  	  	<div style="height: 2em;">{{costKm}}:</div>
+			    <div style="height: 2em;">{{CO2Km}}:</div>
+				<div style="height: 2em;">{{CO2KmSlow}}:</div>
+				<div style="height: 2em;">{{CO2KmFast}}:</div>
+				<div style="height: 2em;">{{boarding}}:</div>
+				<div style="height: 2em;">{{alighting}}:</div>
+				<div style="height: 2em;">{{boardingRORO}}:</div>
+				<div style="height: 2em;">{{alightingRORO}}:</div>
+				<div style="height: 2em;">{{capacity}}:</div>
+			</div>
+			
+			<div id="{{widgetID}}-truck" class="notDraggable" style="position: relative; margin-left: 12em; height: 10em; overflow: hidden; display: none">
+			    <div style="position: absolute; left:0px; right: 30px; height: 20px; width: 100%">
+	    	    	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+		        	    <input id="{{widgetID}}-costKmTruck" class="borderBox otp-tripOptions-loc-input">
+		        	</div>
+		    	</div>
+	    		<div style="position: absolute; top: 2em; left:0px; right: 30px; height: 20px; width: 100%">
+		        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            		<input id="{{widgetID}}-CO2perKmTruck" class="borderBox otp-tripOptions-loc-input">
+		        	</div>
+		    	</div>
+				<div style="position: absolute; top: 4em; left:0px; right: 30px; height: 20px; width: 100%">
+		        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            		<input id="{{widgetID}}-boardingTruck" class="borderBox otp-tripOptions-loc-input">
+		        	</div>
+		    	</div>
+				<div style="position: absolute; top: 6em; left:0px; right: 30px; height: 20px; width: 100%">
+		        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            		<input id="{{widgetID}}-alightingTruck" class="borderBox otp-tripOptions-loc-input">
+		        	</div>
+		    	</div>
+				<div style="position: absolute; top: 8em; left:0px; right: 30px; height: 20px; width: 100%">
+		        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            		<input id="{{widgetID}}-speed" class="borderBox otp-tripOptions-loc-input">
+		        	</div>
+		    	</div>
+			</div>	
+
+			<div id="{{widgetID}}-train" class="notDraggable" style="position: relative; margin-left: 12em; height: 10em; overflow: hidden; display: none">
+			    <div style="position: absolute; left:0px; right: 30px; height: 20px; width: 100%">
+	    	    	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+		        	    <input id="{{widgetID}}-costKmTrain" class="borderBox otp-tripOptions-loc-input">
+		        	</div>
+		    	</div>
+	    		<div style="position: absolute; top: 2em; left:0px; right: 30px; height: 20px; width: 100%">
+		        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            		<input id="{{widgetID}}-CO2perKmTrain" class="borderBox otp-tripOptions-loc-input">
+		        	</div>
+		    	</div>
+				<div style="position: absolute; top: 4em; left:0px; right: 30px; height: 20px; width: 100%">
+		        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            		<input id="{{widgetID}}-boardingTrain" class="borderBox otp-tripOptions-loc-input">
+		        	</div>
+		    	</div>
+				<div style="position: absolute; top: 6em; left:0px; right: 30px; height: 20px; width: 100%">
+		        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            		<input id="{{widgetID}}-alightingTrain" class="borderBox otp-tripOptions-loc-input">
+		        	</div>
+		    	</div>
+				<div style="position: absolute; top: 8em; left:0px; right: 30px; height: 20px; width: 100%">
+		        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            		<input id="{{widgetID}}-capacityTrain" class="borderBox otp-tripOptions-loc-input">
+		        	</div>
+		    	</div>
+			</div>	
+	
+			<div id="{{widgetID}}-ship" class="notDraggable" style="position: relative; margin-left: 12em; height: 20em; overflow: hidden; display: none">
+			    <div style="position: absolute; left:0px; right: 30px; height: 20px; width: 100%">
+	    	    	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+		        	    <input id="{{widgetID}}-costKmShip" class="borderBox otp-tripOptions-loc-input">
+		        	</div>
+		    	</div>
+	    		<div style="position: absolute; top: 2em; left:0px; right: 30px; height: 20px; width: 100%">
+		        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            		<input id="{{widgetID}}-CO2perKmShip" class="borderBox otp-tripOptions-loc-input">
+		        	</div>
+		    	</div>
+				<div style="position: absolute; top: 4em; left:0px; right: 30px; height: 20px; width: 100%">
+		        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            		<input id="{{widgetID}}-CO2perKmSlow" class="borderBox otp-tripOptions-loc-input">
+		        	</div>
+		    	</div>
+				<div style="position: absolute; top: 6em; left:0px; right: 30px; height: 20px; width: 100%">
+		        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            		<input id="{{widgetID}}-CO2perKmFast" class="borderBox otp-tripOptions-loc-input">
+		        	</div>
+		    	</div>
+				<div style="position: absolute; top: 8em; left:0px; right: 30px; height: 20px; width: 100%">
+		        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            		<input id="{{widgetID}}-boardingShip" class="borderBox otp-tripOptions-loc-input">
+		        	</div>
+		    	</div>
+				<div style="position: absolute; top: 10em; left:0px; right: 30px; height: 20px; width: 100%">
+		        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            		<input id="{{widgetID}}-alightingShip" class="borderBox otp-tripOptions-loc-input">
+		        	</div>
+		    	</div>
+				<div style="position: absolute; top: 12em; left:0px; right: 30px; height: 20px; width: 100%">
+		        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            		<input id="{{widgetID}}-boardingRORO" class="borderBox otp-tripOptions-loc-input">
+		        	</div>
+		    	</div>
+				<div style="position: absolute; top: 14em; left:0px; right: 30px; height: 20px; width: 100%">
+		        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            		<input id="{{widgetID}}-alightingRORO" class="borderBox otp-tripOptions-loc-input">
+		        	</div>
+		    	</div>
+				<div style="position: absolute; top: 16em; left:0px; right: 30px; height: 20px; width: 100%">
+		        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            		<input id="{{widgetID}}-capacityShip" class="borderBox otp-tripOptions-loc-input">
+		        	</div>
+		    	</div>
+			</div>			
+		</div>
+	</div>
+
+	<div style="margin-top: 2em">
+		<center>
+			<input type="button" id="{{widgetID}}-delete" value="{{del}}" style="display: none"/>
+			<input type="button" id="{{widgetID}}-previous" value="{{previous}}" style="display: none"/>
+			<input type="button" id="{{widgetID}}-next" value="{{next}}"/>
+			<input type="button" id="{{widgetID}}-finish" value="{{finish}}"/>
+		</center>
+	</div>
+</script>
+
+
+<!-- Shuai (08-03-2018) -->
+<!-- new User Configuration -->
+<script id="otp-userConfiguration" type="text/html">
+
+	<div id="{{widgetID}}-steps" class="notDraggable" style="height: 450px; width: 100%">
+		<ul>
+			<li id="{{widgetID}}-tab1"><a href="#{{widgetID}}-page1">General</a></li>
+			<li id="{{widgetID}}-tab2"><a href="#{{widgetID}}-page2">Vehicle</a></li>
+			<li id="{{widgetID}}-tab3"><a href="#{{widgetID}}-page3">Routes</a></li>
+		</ul>
+
+		<div id="{{widgetID}}-page1" style="display: none; max-height: 380px; overflow: auto">
+			<div style="display: inline-block" class="notDraggable">
+					<select id="{{widgetID}}-generalConfList"/>
+					<img style="margin-left: 15px" id="{{widgetID}}-clean1" src="images/eraser.png"/>
+				</div>
+			<div style="clear:both; margin-bottom:20px"/>
+
+			<b>General Configurations</b>
+			<div style="clear:both; margin-bottom:20px"/>
+
+			<div style="width: 12em; float:left;">
+				<div style="height: 2em;">{{configurationName}}:</div>
+		  	  	<div style="height: 2em;">{{costCO2}}:</div>
+			    <div style="height: 2em;">{{costHour}}:</div>
+			</div>
+	
+			<div class="notDraggable" style="position: relative; margin-left: 12em; height: 6em; overflow: hidden;">
+			    <div style="position: absolute; left:0px; right: 30px; height: 20px; width: 100%">
+	    	    	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+		        	    <input id="{{widgetID}}-generalConfName" class="borderBox otp-tripOptions-loc-input">
+		        	</div>
+		    	</div>
+	    		<div style="position: absolute; top: 2em; left:0px; right: 30px; height: 20px; width: 100%">
+		        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            		<input id="{{widgetID}}-costCO2" class="borderBox otp-tripOptions-loc-input">
+		        	</div>
+		    	</div>
+				<div style="position: absolute; top: 4em; left:0px; right: 30px; height: 20px; width: 100%">
+	    	    	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+		        	    <input id="{{widgetID}}-costHour" class="borderBox otp-tripOptions-loc-input">
+		        	</div>
+		    	</div>
+			</div>		
+			<div style="clear:both; margin-bottom:20px"/>
+
+			<b>KPI & KRI</b>
+			<div style="clear:both; margin-bottom:20px"/>
+		
+	   <!-- <div style="width: 12em; float:left;">
+				<div style="height: 3em;">{{file}}:(optional)</div>
+			</div>
+
+			<div class="notDraggable" style="position: relative; margin-left: 12em; height: 2em; overflow: hidden;">
+	    		<div style="position: absolute; top: 0em; left:0px; right: 30px; height: 20px; width: 100%">
+		        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            		<input id="{{widgetID}}-file" type="file" accept=".txt">
+		        	</div>
+		    	</div>
+			</div>
+	   -->
+			<div style="clear:both; margin-bottom:10px"/>
+			<div id="{{widgetID}}-KPIConfig">
+				<text>Set your KPI weighting</text>
+				<div id="{{widgetID}}-triangle" class="otp-bikeTriangle notDraggable" style="width: 40em"></div>
+				<input type="button" value="reset" style="margin-left:30px" id="{{widgetID}}-reset"></input>
+			</div>
+
+			<div style="clear:both; margin-bottom:10px"/>
+			<div id="{{widgetID}}-KRIConfig">
+				<text>Set your KRI weighting</text>
+				<div id="{{widgetID}}-riskTriangle" class="otp-bikeTriangle notDraggable" style="width: 40em"></div>
+				<input type="button" value="reset" style="margin-left:30px" id="{{widgetID}}-riskReset"></input>
+			</div>
+			<div style="clear:both; margin-bottom:10px"/>
+
+			<center>
+				<input type="button" id="{{widgetID}}-delete1" value="{{del}}" style="display: none"/>
+				<input type="button" id="{{widgetID}}-finish1" value="{{finish}}"/>
+			</center>
+		</div>
+
+		<div id="{{widgetID}}-page2" style="display: none; max-height: 380px; overflow: auto">
+			<div style="display: inline-block" class="notDraggable">
+					<select id="{{widgetID}}-vehicleConfList"/>
+					<img style="margin-left: 15px" id="{{widgetID}}-clean2" src="images/eraser.png"/>
+				</div>
+			<div style="clear:both; margin-bottom:20px"/>
+
+			<b>Vehicle Configurations</b>
+			<div style="clear:both; margin-bottom:20px"/>
+
+			<div style="width: 12em; float:left;">
+				<div style="height: 2em;">{{configurationName}}:</div>
+			</div>
+	
+			<div class="notDraggable" style="position: relative; margin-left: 12em; height: 2em; overflow: hidden;">
+			    <div style="position: absolute; left:0px; right: 30px; height: 20px; width: 100%">
+	    	    	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+		        	    <input id="{{widgetID}}-vehicleConfName" class="borderBox otp-tripOptions-loc-input">
+		        	</div>
+		    	</div>
+			</div>		
+			<div style="clear:both; margin-bottom:20px"/>
+
+			Choose type of vehicle: <select id="{{widgetID}}-vehicleList">
+										<option selected disabled>Select mode</option>
+										<option>Truck</option>
+										<option>Train</option>
+										<option>Ship</option>
+									</select>
+			<div style="clear:both; margin-bottom:20px"/>
+
+			<div id="{{widgetID}}-descriptionTruck" style="width: 12em; float:left; display: none">
+		  	  	<div style="height: 2em;">{{costKm}}:</div>
+			    <div style="height: 2em;">{{CO2Km}}:</div>
+				<div style="height: 2em;">{{boarding}}:</div>
+				<div style="height: 2em;">{{alighting}}:</div>
+				<div style="height: 2em;">{{speed}}:</div>
+			</div>
+
+			<div id="{{widgetID}}-descriptionTrain" style="width: 12em; float:left; display: none">
+		  	  	<div style="height: 2em;">{{costKm}}:</div>
+			    <div style="height: 2em;">{{CO2Km}}:</div>
+				<div style="height: 2em;">{{boarding}}:</div>
+				<div style="height: 2em;">{{alighting}}:</div>
+				<div style="height: 2em;">{{capacity}}:</div>
+			</div>
+
+			<div id="{{widgetID}}-descriptionShip" style="width: 12em; float:left; display: none">
+		  	  	<div style="height: 2em;">{{costKm}}:</div>
+			    <div style="height: 2em;">{{CO2Km}}:</div>
+				<div style="height: 2em;">{{CO2KmSlow}}:</div>
+				<div style="height: 2em;">{{CO2KmFast}}:</div>
+				<div style="height: 2em;">{{boarding}}:</div>
+				<div style="height: 2em;">{{alighting}}:</div>
+				<div style="height: 2em;">{{boardingRORO}}:</div>
+				<div style="height: 2em;">{{alightingRORO}}:</div>
+				<div style="height: 2em;">{{capacity}}:</div>
+			</div>
+			
+			<div id="{{widgetID}}-truck" class="notDraggable" style="position: relative; margin-left: 12em; height: 10em; overflow: hidden; display: none">
+			    <div style="position: absolute; left:0px; right: 30px; height: 20px; width: 100%">
+	    	    	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+		        	    <input id="{{widgetID}}-costKmTruck" class="borderBox otp-tripOptions-loc-input">
+		        	</div>
+		    	</div>
+	    		<div style="position: absolute; top: 2em; left:0px; right: 30px; height: 20px; width: 100%">
+		        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            		<input id="{{widgetID}}-CO2perKmTruck" class="borderBox otp-tripOptions-loc-input">
+		        	</div>
+		    	</div>
+				<div style="position: absolute; top: 4em; left:0px; right: 30px; height: 20px; width: 100%">
+		        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            		<input id="{{widgetID}}-boardingTruck" class="borderBox otp-tripOptions-loc-input">
+		        	</div>
+		    	</div>
+				<div style="position: absolute; top: 6em; left:0px; right: 30px; height: 20px; width: 100%">
+		        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            		<input id="{{widgetID}}-alightingTruck" class="borderBox otp-tripOptions-loc-input">
+		        	</div>
+		    	</div>
+				<div style="position: absolute; top: 8em; left:0px; right: 30px; height: 20px; width: 100%">
+		        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            		<input id="{{widgetID}}-speed" class="borderBox otp-tripOptions-loc-input">
+		        	</div>
+		    	</div>
+			</div>	
+
+			<div id="{{widgetID}}-train" class="notDraggable" style="position: relative; margin-left: 12em; height: 10em; overflow: hidden; display: none">
+			    <div style="position: absolute; left:0px; right: 30px; height: 20px; width: 100%">
+	    	    	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+		        	    <input id="{{widgetID}}-costKmTrain" class="borderBox otp-tripOptions-loc-input">
+		        	</div>
+		    	</div>
+	    		<div style="position: absolute; top: 2em; left:0px; right: 30px; height: 20px; width: 100%">
+		        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            		<input id="{{widgetID}}-CO2perKmTrain" class="borderBox otp-tripOptions-loc-input">
+		        	</div>
+		    	</div>
+				<div style="position: absolute; top: 4em; left:0px; right: 30px; height: 20px; width: 100%">
+		        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            		<input id="{{widgetID}}-boardingTrain" class="borderBox otp-tripOptions-loc-input">
+		        	</div>
+		    	</div>
+				<div style="position: absolute; top: 6em; left:0px; right: 30px; height: 20px; width: 100%">
+		        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            		<input id="{{widgetID}}-alightingTrain" class="borderBox otp-tripOptions-loc-input">
+		        	</div>
+		    	</div>
+				<div style="position: absolute; top: 8em; left:0px; right: 30px; height: 20px; width: 100%">
+		        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            		<input id="{{widgetID}}-capacityTrain" class="borderBox otp-tripOptions-loc-input">
+		        	</div>
+		    	</div>
+			</div>	
+	
+			<div id="{{widgetID}}-ship" class="notDraggable" style="position: relative; margin-left: 12em; height: 20em; overflow: hidden; display: none">
+			    <div style="position: absolute; left:0px; right: 30px; height: 20px; width: 100%">
+	    	    	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+		        	    <input id="{{widgetID}}-costKmShip" class="borderBox otp-tripOptions-loc-input">
+		        	</div>
+		    	</div>
+	    		<div style="position: absolute; top: 2em; left:0px; right: 30px; height: 20px; width: 100%">
+		        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            		<input id="{{widgetID}}-CO2perKmShip" class="borderBox otp-tripOptions-loc-input">
+		        	</div>
+		    	</div>
+				<div style="position: absolute; top: 4em; left:0px; right: 30px; height: 20px; width: 100%">
+		        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            		<input id="{{widgetID}}-CO2perKmSlow" class="borderBox otp-tripOptions-loc-input">
+		        	</div>
+		    	</div>
+				<div style="position: absolute; top: 6em; left:0px; right: 30px; height: 20px; width: 100%">
+		        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            		<input id="{{widgetID}}-CO2perKmFast" class="borderBox otp-tripOptions-loc-input">
+		        	</div>
+		    	</div>
+				<div style="position: absolute; top: 8em; left:0px; right: 30px; height: 20px; width: 100%">
+		        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            		<input id="{{widgetID}}-boardingShip" class="borderBox otp-tripOptions-loc-input">
+		        	</div>
+		    	</div>
+				<div style="position: absolute; top: 10em; left:0px; right: 30px; height: 20px; width: 100%">
+		        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            		<input id="{{widgetID}}-alightingShip" class="borderBox otp-tripOptions-loc-input">
+		        	</div>
+		    	</div>
+				<div style="position: absolute; top: 12em; left:0px; right: 30px; height: 20px; width: 100%">
+		        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            		<input id="{{widgetID}}-boardingRORO" class="borderBox otp-tripOptions-loc-input">
+		        	</div>
+		    	</div>
+				<div style="position: absolute; top: 14em; left:0px; right: 30px; height: 20px; width: 100%">
+		        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            		<input id="{{widgetID}}-alightingRORO" class="borderBox otp-tripOptions-loc-input">
+		        	</div>
+		    	</div>
+				<div style="position: absolute; top: 16em; left:0px; right: 30px; height: 20px; width: 100%">
+		        	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+	            		<input id="{{widgetID}}-capacityShip" class="borderBox otp-tripOptions-loc-input">
+		        	</div>
+		    	</div>
+			</div>	
+
+			<div style="clear:both; margin-bottom:10px"/>
+
+			<center>
+				<input type="button" id="{{widgetID}}-delete2" value="{{del}}" style="display: none"/>
+				<input type="button" id="{{widgetID}}-finish2" value="{{finish}}"/>
+			</center>		
+		</div>
+
+		<div id="{{widgetID}}-page3" style="display: none; max-height: 380px; overflow: auto">
+			<div style="display: inline-block" class="notDraggable">
+					<select id="{{widgetID}}-routesConfList"/>
+					<img style="margin-left: 15px" id="{{widgetID}}-clean3" src="images/eraser.png"/>
+				</div>
+			<div style="clear:both; margin-bottom:20px"/>
+
+			<b>Routes Configurations</b>
+			<div style="clear:both; margin-bottom:20px"/>
+
+			<div style="width: 12em; float:left;">
+				<div style="height: 2em;">{{configurationName}}:</div>
+			</div>
+	
+			<div class="notDraggable" style="position: relative; margin-left: 12em; height: 2em; overflow: hidden;">
+			    <div style="position: absolute; left:0px; right: 30px; height: 20px; width: 100%">
+	    	    	<div style="position: absolute; left:0px; right: 16px; top:1px; bottom: 0px;">
+		        	    <input id="{{widgetID}}-routesConfName" class="borderBox otp-tripOptions-loc-input">
+		        	</div>
+		    	</div>
+			</div>		
+			<div style="clear:both; margin-bottom:10px"/>
+
+			<div class="notDraggable">
+				<div style="float:right; font-size: 12px;"><button id="{{widgetID}}-bannedRoutesButton">{{edit}}...</button></div>
+				{{bannedRoutes}}: <span id="{{widgetID}}-bannedRoutesList">({{none}})</span>
+				<div style="clear:both;"/>
+			</div>
+			<div style="height: 8px;"/>
+
+			<div class="notDraggable">
+				<div style="float:right; font-size: 12px;"><button id="{{widgetID}}-forcedRoutesButton">{{edit}}...</button></div>
+				{{forcedRoutes}}: <span id="{{widgetID}}-forcedRoutesList">({{none}})</span>
+				<div style="clear:both;"/>
+			</div>
+			<div style="height: 8px;"/>
+
+			<div class="notDraggable">
+				<div style="float:right; font-size: 12px;"><button id="{{widgetID}}-passByButton">{{edit}}...</button></div>
+				{{passBy}}: <span id="{{widgetID}}-passByList">({{none}})</span>
+				<div style="clear:both;"/>
+			</div>
+			<div style="height: 8px;"/>
+
+			<div class="notDraggable">
+				<div style="float:right; font-size: 12px;"><button id="{{widgetID}}-bannedStopsButton">{{edit}}...</button></div>
+				{{bannedStops}}: <span id="{{widgetID}}-bannedStopsList">({{none}})</span>
+				<div style="clear:both;"/>
+			</div>
+			<div style="height: 8px;"/>
+
+			<center>
+				<input type="button" id="{{widgetID}}-delete3" value="{{del}}" style="display: none"/>
+				<input type="button" id="{{widgetID}}-finish3" value="{{finish}}"/>
+			</center>
+		</div>
+	</div>
+
+	<div style="margin-top: 1em">
+		<center>
+			<input type="button" id="{{widgetID}}-previous" value="{{previous}}" style="display: none"/>
+			<input type="button" id="{{widgetID}}-next" value="{{next}}"/>
+		</center>
+	</div>
+</script>
