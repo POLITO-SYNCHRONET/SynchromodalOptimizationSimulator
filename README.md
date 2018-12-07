@@ -23,5 +23,4 @@ Yuanyuan Li <s217403@studenti.polito.it></br>
 Shuai Yuan <shuai.yuan@studenti.polito.it></br>
 
 Fraunhofer Institute</br>
-Axel Simroth <axel.simroth@ivi.fraunhofer.de></br>
 Denise Holfeld <denise.holfeld@ivi.fraunhofer.de></br>
