@@ -17,6 +17,7 @@ Additional information and instructions are available in the 'Guide' folder, inc
 
 Politecnico di Torino, Operations Research. and Optimization Group (ORO)</br>
 Roberto Tadei <roberto.tadei@polito.it></br>
+Guido Perboli <guido.perboli@polito.it></br>
 Daniele Manerba <daniele.manerba@polito.it></br>
 Riccardo Giusti <riccardo.giusti@polito.it></br>
 Yuanyuan Li <s217403@studenti.polito.it></br>
